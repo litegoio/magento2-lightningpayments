@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<payment>
+			<litego_lightning>
+				<active>0</active>
+				<model>LiteGoio\LightningPayments\Model\Lightning</model>
+				<order_status>pending</order_status>
+				<title>BTC Lightning</title>
+				<allowspecific>0</allowspecific>
+				<litego_merchant_id></litego_merchant_id>
+				<litego_secret></litego_secret>
+                <litego_sandbox_merchant_id></litego_sandbox_merchant_id>
+				<litego_sandbox_secret></litego_sandbox_secret>
+				<litego_testnet>1</litego_testnet>
+                <sort_order>100</sort_order>
+			</litego_lightning>
+		</payment>
+	</default>
+</config>

@@ -1,0 +1,47 @@
+<div class="cms-content">
+    <h3 style="margin-bottom: 10px;">Order info</h3>
+    <div class="table-wrapper">
+        <table style="width: 400px; margin-top:5px; margin-bottom:5px;">
+            <tr>
+                <th>Order</th>
+                <td>#<?php echo $block->getOrderNum();?></td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td><?php echo $block->getAmount();?></td>
+            </tr>
+            <tr>
+                <th>Amount in Base Currency</th>
+                <td><?php echo $block->getBaseAmount();?></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3 style="margin-top: 50px; margin-bottom: 10px;">Progress bar expiration</h3>
+    <div id="progress"></div>
+
+    <h3 style="margin-top: 50px; margin-bottom: 10px;">Litego Payment Request</h3>
+    <table style="border-collapse: separate; margin-top:5px; margin-bottom:5px; margin-left: auto;margin-right:auto;">
+        <tr>
+            <td style="padding: 0;">
+                <textarea id="textarea_request" rows="3"><?php echo $block->getQrPaymentRequest(); ?></textarea>
+                <button class="action primary clipboard" data-clipboard-action="copy" data-clipboard-target="#textarea_request" style="margin-top:10px;"><span>Copy to Clipboard</span></button>
+                
+                <div style="display:inline-block;vertical-align: middle;padding-top: 10px; padding-left:20px;">Unable to send the payment? Connect to our <a href="<?php echo $block->getLitegoInstructionUrl(); ?>">node</a></div>
+            </td>
+            <td style="width: 242px;padding: 0;padding-left: 10px;"><img src="<?php echo $block->getQrPaymentRequestImage()?>" style="border: 1px solid gray; padding:10px;"></td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "LiteGoio_LightningPayments/js/litego": {
+            "progressElement":"#progress", 
+            "clipboard":".clipboard", 
+            "data": <?php echo $block->getDataJson(); ?>
+        }
+    }
+}
+</script>

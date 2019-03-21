@@ -1,0 +1,17 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1column">
+    <head>
+        <css src="LiteGoio_LightningPayments::css/progress.css" />
+    </head>
+    <body>
+        <!-- <referenceBlock name="page.main.title" remove="true"/> -->
+        <referenceContainer name="columns.top">               
+            <container name="page.messages" htmlTag="div" htmlClass="page messages testclass">
+                <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder" template="Magento_Theme::html/messages.phtml" />
+                <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages" template="Magento_Theme::messages.phtml" />
+            </container>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="LiteGoio\LightningPayments\Block\Litego" name="litego" template="litego.phtml" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>

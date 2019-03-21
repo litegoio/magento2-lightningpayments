@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="payment" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+			
+			<group id="litego_lightning" translate="label" type="text" sortOrder="101" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>LiteGo.io Payments</label>
+				<field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Payment method Title</label>
+				</field>
+				<field id="model"></field>
+				
+                
+                <field id="litego_testnet" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Sandbox mode</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+                
+				<field id="litego_merchant_id" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Litego Merchant ID</label>
+					<backend_model>LiteGoio\LightningPayments\Model\Config\Backend\MerchantID</backend_model>
+                    <depends>
+                        <field id="litego_testnet">0</field>
+                    </depends>
+				</field>
+				<field id="litego_secret" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Litego Secret Key</label>
+					<backend_model>LiteGoio\LightningPayments\Model\Config\Backend\Secret</backend_model>
+                    <depends>
+                        <field id="litego_testnet">0</field>
+                    </depends>
+				</field>
+                
+                <field id="litego_sandbox_merchant_id" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Litego Sandbox Merchant ID</label>
+					<backend_model>LiteGoio\LightningPayments\Model\Config\Backend\MerchantID</backend_model>
+                    <depends>
+                        <field id="litego_testnet">1</field>
+                    </depends>
+				</field>
+				<field id="litego_sandbox_secret" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Litego Sandbox Secret Key</label>
+					<backend_model>LiteGoio\LightningPayments\Model\Config\Backend\Secret</backend_model>
+                    <depends>
+                        <field id="litego_testnet">1</field>
+                    </depends>
+				</field>
+                
+				
+				<field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+					<label>Sort Order</label>
+					<frontend_class>validate-number</frontend_class>
+				</field>
+			</group>
+			
+		</section>
+	</system>
+</config>

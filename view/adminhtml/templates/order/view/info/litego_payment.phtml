@@ -1,0 +1,19 @@
+<?php
+if($block->getPaymentCode() == \LiteGoio\LightningPayments\Model\Lightning::PAYMENT_METHOD_CUSTOM_INVOICE_CODE)
+{
+   $details = $block->getDataArray();
+   if ($details): ?>
+        <br>
+        <table class="data-table admin__table-secondary">
+        <?php foreach ($details as $key => $item):?>
+            <tr>
+                <th><?php echo __($item['label']); ?>:</th>
+                <td>
+                    <?php /* @noEscape */ echo nl2br( __($item['value']) ); ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </table>
+    <?php endif;
+}
+?>
